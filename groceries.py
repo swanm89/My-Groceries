@@ -1,4 +1,5 @@
 import code
+import operator
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -22,12 +23,10 @@ products = [
     {"id":19, "name": "Gluten Free Quinoa Three Cheese & Mushroom Blend", "department": "dry goods pasta", "aisle": "grains rice dried goods", "price": 3.99},
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ]
+print("------------------")
+print("There are " + str(len(products)) + " Products:")
 
-def sort_by_team_name(product):
-    return product["name"]
-
-products = sorted(products, key=sort_by_team_name)
+products = sorted(products, key=operator.itemgetter("name"))
 
 for product in products:
-    print(product["name"])
-# code.interact(local=locals())
+    print(" +" + product["name"])
